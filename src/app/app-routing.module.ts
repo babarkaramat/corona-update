@@ -17,7 +17,7 @@ const routes: Routes = [
     component: DashboardComponent
   },
   {
-    path: 'details/:type',
+    path: ':type',
     component: DetailsComponent
   },
 ];

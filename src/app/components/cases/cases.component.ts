@@ -37,21 +37,16 @@ export class CasesComponent implements OnInit {
       })
   }
   getdate(i) {
-    let date = ""
-    this.cases.forEach((element, index) => {
-      if (index == i) {
-        date = element.date;
-      }
-    });
-    return date;
+    return this.cases[i] && this.cases[i].date || '';
+    // return this.cases[i] ? this.cases[i].date : '';
+
   }
   getvalue(i, j) {
     let value = 0
-    this.cases.forEach((element, index) => {
-      if (index >= i && index <= j) {
-        value += +element.newCases;
-      }
-    });
+    for (let index = i; index <= j; index++) {
+      value += this.cases[index] && +this.cases[index].newCases || 0;
+
+    }
     return value;
   }
   AddCasesData() {
@@ -69,7 +64,7 @@ export class CasesComponent implements OnInit {
         cases: cas
       }
     });
-    this.router.navigate(['details/' + 'cases']);
+    this.router.navigate(['cases']);
   }
 
   getPercentage() {

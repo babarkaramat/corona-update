@@ -31,21 +31,13 @@ export class DeathComponent implements OnInit {
       })
   }
   getdate(i) {
-    let date = ""
-    this.death.forEach((element, index) => {
-      if (index == i) {
-        date = element.date;
-      }
-    });
-    return date;
+    return this.death[i] && this.death[i].date || '';
   }
   getvalue(i, j) {
     let value = 0
-    this.death.forEach((element, index) => {
-      if (index >= i && index <= j) {
-        value += +element.newCases;
-      }
-    });
+    for (let index = i; index <= j; index++) {
+      value += this.death[index] && +this.death[index].newCases || 0;
+    }
     return value;
   }
   AddDeathData() {
@@ -63,7 +55,7 @@ export class DeathComponent implements OnInit {
         death: dea
       }
     });
-    this.router.navigate(['details/' + 'death']);
+    this.router.navigate(['death']);
   }
   getPercentage() {
     var value = ((this.getvalue(7, 13) - this.getvalue(0, 6)) / this.getvalue(7, 13)) * 100

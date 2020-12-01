@@ -31,21 +31,13 @@ export class AdmitComponent implements OnInit {
       })
   }
   getdate(i) {
-    let date = ""
-    this.admit.forEach((element, index) => {
-      if (index == i) {
-        date = element.date;
-      }
-    });
-    return date;
+    return this.admit[i] && this.admit[i].date || '';
   }
   getvalue(i, j) {
     let value = 0
-    this.admit.forEach((element, index) => {
-      if (index >= i && index <= j) {
-        value += +element.newAdmit;
-      }
-    });
+    for (let index = i; index <= j; index++) {
+      value += this.admit[index] && +this.admit[index].newAdmit || 0;
+    }
     return value;
   }
   getPercentage() {
@@ -67,7 +59,7 @@ export class AdmitComponent implements OnInit {
         admit: adm
       }
     });
-    this.router.navigate(['details/' + 'admit']);
+    this.router.navigate(['admit']);
   }
 
 }

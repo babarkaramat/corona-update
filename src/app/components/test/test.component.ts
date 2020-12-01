@@ -32,21 +32,13 @@ export class TestComponent implements OnInit {
 
   }
   getdate(i) {
-    let date = ""
-    this.test.forEach((element, index) => {
-      if (index == i) {
-        date = element.date;
-      }
-    });
-    return date;
+    return this.test[i] && this.test[i].date || '';
   }
   getvalue(i, j) {
     let value = 0
-    this.test.forEach((element, index) => {
-      if (index >= i && index <= j) {
-        value += +element.newTest;
-      }
-    });
+    for (let index = i; index <= j; index++) {
+      value += this.test[index] && +this.test[index].newTest || 0;
+    }
     return value;
   }
   getPercentage() {
@@ -68,7 +60,7 @@ export class TestComponent implements OnInit {
         test: tes
       }
     });
-    this.router.navigate(['details/' + 'test']);
+    this.router.navigate(['test']);
   }
 }
 

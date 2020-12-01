@@ -41,7 +41,7 @@ export class DetailsComponent implements OnInit {
     majorTickLines: { width: 0 },
     minorTickLines: { width: 0 },
   };
-  
+
   public marker: Object = { dataLabel: { visible: true, position: 'Top', font: { fontWeight: '600', color: '#111111' } } }
   public titleCases: string = 'Cases by specimen date';
   public titleDeath: string = 'Deaths within 28 days of positive test by date of death';
@@ -153,6 +153,5 @@ export class DetailsComponent implements OnInit {
     }
     // }, 1000);
   }
-
 
 }
