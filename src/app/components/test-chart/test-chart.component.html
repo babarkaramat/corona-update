@@ -1,0 +1,13 @@
+
+<div class="control-section" *ngIf="test">
+    <div align='center'>
+        <ejs-chart style='display:block' align='center' id='chartcontainertest' [title]='title'
+            [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxistest' [tooltip]='tooltip' (load)='loadtest($event)'
+            [chartArea]='chartArea' [width]='width' [height]='height'>
+            <e-series-collection>
+                <e-series [dataSource]='test' type='Line' xName='date' yName='newTest' width=2 [marker]='marker'>
+                </e-series>
+            </e-series-collection>
+        </ejs-chart>
+    </div>
+</div>

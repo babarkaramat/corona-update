@@ -1,0 +1,13 @@
+
+<div class="control-section" *ngIf="death">
+    <div align='center'>
+        <ejs-chart style='display:block' align='center' id='chartcontainerdeath' [title]='title'
+            [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxisdeath' [tooltip]='tooltip' (load)='loaddeath($event)'
+            [chartArea]='chartArea' [width]='width' [height]='height'>
+            <e-series-collection>
+                <e-series [dataSource]='death' type='Line' xName='date' yName='newCases' width=2 [marker]='marker'>
+                </e-series>
+            </e-series-collection>
+        </ejs-chart>
+    </div>
+</div>
