@@ -4,19 +4,19 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { TooltipModule,/*  createSpinner, showSpinner, hideSpinner */ } from '@syncfusion/ej2-angular-popups';
-import { ToolbarModule } from '@syncfusion/ej2-angular-navigations';
+import { AccordionModule, ToolbarModule } from '@syncfusion/ej2-angular-navigations';
 import { ChartAllModule, AccumulationChartAllModule, RangeNavigatorAllModule } from '@syncfusion/ej2-angular-charts';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
-    TooltipModule, ToolbarModule,
+    TooltipModule, ToolbarModule, AccordionModule,
     ChartAllModule, AccumulationChartAllModule, RangeNavigatorAllModule,
   ],
   declarations: [],
   providers: [],
-  exports: [TooltipModule, ToolbarModule,
+  exports: [TooltipModule, ToolbarModule, AccordionModule,
     ChartAllModule, AccumulationChartAllModule, RangeNavigatorAllModule,]
 })
 export class SharedModule {}

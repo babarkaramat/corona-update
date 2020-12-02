@@ -1,0 +1,86 @@
+<div class="col-lg-12 control-section card-control-section basic_card_layout">
+    <div class="e-sample-resize-container e-card-resize-container">
+        <div class='row'>
+            <div class="row card-layout">
+                <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                    <div tabindex="0" class="e-card" id="basic_card" style="min-height: 477px; max-height: 477px;">
+                        <div class="e-card-header">
+                            <div class="e-card-header-caption">
+                                <div class="Card">Healthcare</div>
+                                <p class="headings" style="margin-top: 0;">Patients admitted </p>
+
+                                <div class="e-card-sub-title">Latest data provided on
+                                    {{getdate(0) | date:'MMMM d, y' }} </div>
+
+                            </div>
+                        </div>
+                        <div class="e-card-content">
+                            <p style="margin: 0">Daily</p>
+                            <ejs-tooltip #tooltip [showTipPointer]='false' [width]='130' [offsetX]='-80'
+                                content=" Daily number of people tested positive reported on ({{getdate(0)  | date:'MMMM d, y' }}) ">
+                                <p class="headings" style="margin-top: 0">{{getvalue(0 , 0)}} </p>
+
+                            </ejs-tooltip>
+                            <p style="margin: 0">Last 7 days</p>
+                            <p style="margin: 0">
+                                <ejs-tooltip #tooltip [showTipPointer]='false' [width]='130' content=" Total number of people tested positive reported in the last 7 days 
+                                    ({{getdate(6)  | date:'MMMM d, y' }} – {{getdate(0)  | date:'MMMM d, y' }}) ">
+                                    <span class="headings"> {{getvalue(0 , 6) | number}}</span>
+                                </ejs-tooltip>
+
+
+                                <ejs-tooltip #tooltip [showTipPointer]='false' [width]='130'
+                                    content="Change from previous 7 days ({{getdate(13)  | date:'MMMM d, y' }} – {{getdate(7)  | date:'MMMM d, y' }})">
+                                    <span style=" padding-left: 20px;">
+                                        <ng-container
+                                            *ngIf=" (((getvalue(0, 6) - getvalue(7, 13)) / getvalue(0, 16)) * 100) > 0; else elseTemplate">
+
+                                            <span class="perSpanR"> <i class="fa fa-arrow-up"
+                                                    style="font-size: 15px;"></i> &nbsp;
+                                                <span
+                                                    class="headings">{{(((getvalue(0, 6) - getvalue(7, 13)) / getvalue(0, 16)) * 100) | number}}</span>
+                                                ({{getPercentage()}} %)</span>
+                                        </ng-container>
+                                        <ng-template #elseTemplate>
+                                            <span class="perSpanG"> <i class="fa fa-arrow-down"
+                                                    style="font-size: 15px;"></i> &nbsp;
+                                                <span class="headings">
+                                                    {{(((getvalue(0, 6) - getvalue(7, 13)) / getvalue(0, 16)) * 100) | number}}</span>
+                                                (-{{getPercentage()}} %)</span>
+                                        </ng-template>
+                                    </span>
+                                </ejs-tooltip>
+
+                            </p>
+                        </div>
+
+                        <ejs-accordion class="bgcolor">
+                            <e-accordionitems>
+                                <e-accordionitem>
+                                    <ng-template #header>
+                                        <p class="font">Rate per 100k resident population:
+                                            {{RollingRate[0] && +RollingRate[0].newAdmissionsRollingRate || ''}}
+                                        </p>
+                                    </ng-template>
+                                    <ng-template #content>
+                                        <p class="font" style="margin: 0">Seven-day rolling rate as of
+                                            {{RollingRate[0] && RollingRate[0].date || '' | date:'MMMM d, y'}}</p>
+                                    </ng-template>
+                                </e-accordionitem>
+                            </e-accordionitems>
+                        </ejs-accordion>
+
+
+                        <app-admit-chart [admit]="admit" *ngIf="admit.length > 0"></app-admit-chart>
+                        <div class="e-card-actions">
+                            <button class="e-btn e-outline e-primary" (click)="AddAdmitData()">
+                                All Healthcare Data
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,7 +2,7 @@ export interface DeathModel {
     death: [
         {
             date: string;
-            newCases: string;
+            newDeaths28DaysByPublishDate: string;
         }
     ]
 }

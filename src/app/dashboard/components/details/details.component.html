@@ -1,0 +1,59 @@
+<div class="control-section" *ngIf="death.length > 0">
+  <div align='center'>
+    <ejs-chart style='display:block;' [chartArea]='chartArea' [width]='width' align='center' id='chartcontainerdeath'
+      [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxisdeath' [title]='titleDeath' [tooltip]='tooltip'
+      (load)='load($event)'>
+      <e-series-collection>
+        <e-series [dataSource]='death' type='Column' xName='date' yName='newDeaths28DaysByPublishDate' width=2 [marker]='marker'>
+        </e-series>
+
+      </e-series-collection>
+    </ejs-chart>
+  </div>
+</div>
+<div class="control-section" *ngIf="cases.length > 0">
+
+
+  <div align='center'>
+    <ejs-chart style='display:block;' [chartArea]='chartArea' [width]='width' align='center' id='chartcontainercases'
+      [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis' [title]='titleCases' [tooltip]='tooltip'
+      (load)='load($event)'>
+      <e-series-collection>
+        <e-series [dataSource]='cases' type='Column' xName='date' yName='newCasesByPublishDate' width=2 [marker]='marker'>
+        </e-series>
+
+      </e-series-collection>
+    </ejs-chart>
+  </div>
+</div>
+<div class="control-section" *ngIf="admit.length > 0">
+  <div align='center'>
+    <ejs-chart style='display:block;' [chartArea]='chartArea' [width]='width' align='center' id='chartcontaineradmit'
+      [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxis' [title]='titleAdmit' [tooltip]='tooltip'
+      (load)='load($event)'>
+      <e-series-collection>
+        <e-series [dataSource]='admit' type='Column' xName='date' yName='newAdmissions' width=2 [marker]='marker'>
+        </e-series>
+
+      </e-series-collection>
+    </ejs-chart>
+  </div>
+</div>
+<div class="control-section" *ngIf="test.length > 0">
+  <div align='center'>
+    <ejs-chart style='display:block;' [chartArea]='chartArea' [width]='width' align='center' id='chartcontainertest'
+      [primaryXAxis]='primaryXAxis' [primaryYAxis]='primaryYAxisTest' [title]='titleTest' [tooltip]='tooltip'
+      (load)='load($event)'>
+      <e-series-collection>
+        <e-series [dataSource]='test' type='Column' xName='date' yName='newVirusTests' width=2 [marker]='marker'>
+        </e-series>
+
+      </e-series-collection>
+    </ejs-chart>
+  </div>
+</div>
+<style>
+  .control-section {
+    min-height: 450px;
+  }
+</style>

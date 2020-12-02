@@ -929,3 +929,10 @@
     color: rgba(0, 90, 48, 1);
     padding: 20px;
 }
+.e-card {
+    background-color: #f8f6f6;
+}
+
+.bgcolor {
+    background-color: #f8f6f6;
+}

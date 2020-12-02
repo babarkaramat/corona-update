@@ -1,0 +1,42 @@
+.e-accordion {
+    border: none;
+}
+.e-accordion .e-acrdn-item .e-acrdn-header .e-toggle-icon {
+    display: table;
+    font-size: 12px;
+    /* height: 36px; */
+    min-height: 36px;
+    min-width: 24px;
+    position: absolute;
+    right: 16px;
+    top: -6px;
+}
+
+.e-accordion .e-acrdn-item .e-acrdn-header {
+    line-height: 0;
+    /* min-height: 36px; */
+    overflow: hidden;
+    padding: 0px 66px 0 16px;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.font {
+    font-size: 12px;
+}
+
+.e-accordion .e-acrdn-item .e-acrdn-panel .e-acrdn-content {
+    line-height: 1.5;
+    overflow: hidden;
+    padding: 0 16px;
+    text-overflow: ellipsis;
+}
+
+e-card .e-card-actions {
+    box-sizing: border-box;
+    display: inline-block;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    padding: 0 6px 6px 6px;   
+
+}

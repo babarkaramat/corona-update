@@ -1,26 +1,8 @@
 export interface CasesModel {
-    // death: [
-    //     {
-    //         date: string;
-    //         newDeath: string;
-    //     }
-    // ]
     cases: [
         {
             date: string;
-            newCases: string;
+            newCasesByPublishDate: string;
         }
     ]
-    // admit: [
-    //     {
-    //         date: string;
-    //         newAdmit: string;
-    //     }
-    // ]
-    // test: [
-    //     {
-    //         date: string;
-    //         newTest: string;
-    //     }
-    // ]
 }
